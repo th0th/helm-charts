@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "listmonk.fullname" . }}-listmonk
+  labels:
+    {{- include "listmonk.labels" . | nindent 4 }}
+spec:
+  replicas: {{ .Values.listmonk.replicas}}
+  selector:
+    matchLabels:
+      deployment: listmonk
+      {{- include "listmonk.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      labels:
+        deployment: listmonk
+        {{- include "listmonk.selectorLabels" . | nindent 8 }}
+    spec:
+      containers:
+      - command:
+        - ./listmonk
+        - --idempotent
+        image: {{ .Values.listmonk.image.repository }}:{{ .Values.listmonk.image.tag }}
+        name: listmonk
+        volumeMounts:
+        - mountPath: /listmonk/config.toml
+          name: config
+          subPath: config.toml
+      volumes:
+      - configMap:
+          name: {{ include "listmonk.fullname" . }}-listmonk
+        name: config

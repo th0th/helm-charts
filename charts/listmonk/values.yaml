@@ -1,0 +1,18 @@
+ingress:
+  annotations: {}
+  enable: false
+  host: listmonk.local
+  tls: []
+listmonk:
+  image:
+    repository: listmonk/listmonk
+    tag: v3.0.0
+  replicas: 1
+postgres:
+  database: listmonk
+  image:
+    repository: postgres
+    tag: 16-alpine
+  password: ""
+  resources: {}
+  user: ""

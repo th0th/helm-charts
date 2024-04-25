@@ -1,0 +1,24 @@
+{{- if .Values.ingress.enable }}
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: {{ include "listmonk.fullname" . }}-listmonk
+  labels:
+      {{- include "listmonk.labels" . | nindent 4 }}
+  annotations:
+      {{- toYaml .Values.ingress.annotations | nindent 4 }}
+spec:
+  rules:
+  - host: {{ .Values.ingress.host}}
+    http:
+      paths:
+      - backend:
+          service:
+            name: '{{ include "listmonk.fullname" . }}-listmonk'
+            port:
+              number: 80
+        path: /
+        pathType: Prefix
+  tls:
+    {{- toYaml .Values.ingress.tls | nindent 4 }}
+{{- end }}
