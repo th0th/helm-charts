@@ -8,7 +8,7 @@ A collection of helm charts.
 
 ## Sponsor
 
-[<img alt="WebGazer" src="https://github.com/th0th/helm-charts/assets/698079/aa290e3b-58cd-4cd4-a59b-7a011c0dd544" width="256" />](https://www.webgazer.io/?utm_source=github&utm_campaign=helm-charts&utm_term=visual)
+[<img alt="WebGazer" src="https://github.com/th0th/helm-charts/assets/698079/04756222-ece9-4b79-abc9-e8ceaf1d92c7" width="256" />](https://www.webgazer.io/?utm_source=github&utm_campaign=helm-charts&utm_term=visual)
 
 [WebGazer](https://www.webgazer.io/?utm_source=github&utm_campaign=helm-charts) is an uptime monitoring
 and analytics platform that checks your websites, cron jobs, or scheduled tasks on a regular basis. It notifies you with instant alerts
