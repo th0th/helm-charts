@@ -4,6 +4,9 @@ ingress:
   host: listmonk.local
   tls: []
 listmonk:
+  admin:
+    password: ""
+    username: ""
   image:
     repository: listmonk/listmonk
     tag: v3.0.0
