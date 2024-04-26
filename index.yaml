@@ -1,0 +1,15 @@
+apiVersion: v1
+entries:
+  listmonk:
+  - apiVersion: v2
+    appVersion: 3.0.0
+    created: "2024-04-26T09:02:11.66511857Z"
+    description: High performance, self-hosted, newsletter and mailing list manager
+      with a modern dashboard.
+    digest: c7bffea8e5b1e7acd8f2ca9e06d416d2dda8ffffd28188511c599725da8ae4d9
+    name: listmonk
+    type: application
+    urls:
+    - https://github.com/th0th/helm-charts/releases/download/listmonk-0.1.0/listmonk-0.1.0.tgz
+    version: 0.1.0
+generated: "2024-04-26T09:02:11.665138578Z"
