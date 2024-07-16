@@ -35,6 +35,18 @@ spec:
             - mountPath: /data/settings.js
               name: configmap-node-red
               subPath: settings.js
+      initContainers:
+        - command:
+            - chown
+            - -R
+            - 1000:1000
+            - /data
+          name: chown-data
+          image: alpine
+          volumeMounts:
+            - mountPath: /data
+              name: data
+              subPath: node-red-data
       volumes:
         - configMap:
             name: {{ include "nodeRed.fullname" . }}-node-red
