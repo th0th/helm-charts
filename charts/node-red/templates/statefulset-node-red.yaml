@@ -1,0 +1,53 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: {{ include "nodeRed.fullname" . }}-node-red
+  labels:
+    {{- include "nodeRed.labels" . | nindent 4 }}
+spec:
+  persistentVolumeClaimRetentionPolicy:
+    whenDeleted: Retain
+    whenScaled: Retain
+  replicas: 1
+  selector:
+    matchLabels:
+      statefulSet: node-red
+      {{- include "nodeRed.selectorLabels" . | nindent 6 }}
+  serviceName: node-red-hl
+  template:
+    metadata:
+      labels:
+        statefulSet: node-red
+        {{- include "nodeRed.selectorLabels" . | nindent 8 }}
+      name: node-red
+    spec:
+      containers:
+        - env:
+            - name: TZ
+              value: {{ .Values.nodeRed.timeZone }}
+          image: {{ .Values.nodeRed.image.repository }}:{{ .Values.nodeRed.image.tag }}
+          name: node-red
+          resources: {{- toYaml .Values.nodeRed.resources | nindent 12 }}
+          volumeMounts:
+            - mountPath: /data
+              name: data
+              subPath: node-red-data
+            - mountPath: /data/settings.js
+              name: configmap-node-red
+              subPath: settings.js
+      volumes:
+        - configMap:
+            name: {{ include "nodeRed.fullname" . }}-node-red
+          name: configmap-node-red
+  volumeClaimTemplates:
+    - kind: PersistentVolumeClaim
+      apiVersion: v1
+      metadata:
+        name: data
+      spec:
+        accessModes:
+          - ReadWriteOnce
+        resources:
+          requests:
+            storage: 10Gi
+        volumeMode: Filesystem

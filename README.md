@@ -5,6 +5,7 @@ A collection of helm charts.
 ## Available charts
 
 * [listmonk](./charts/listmonk)
+* [node-red](./charts/node-red)
 
 ## Sponsor
 

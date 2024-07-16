@@ -8,12 +8,12 @@ High performance, self-hosted, newsletter and mailing list manager with a modern
 
 ```shell
 $ helm upgrade \
-    --create-namespace \
-    --install listmonk listmonk \
-    --namespace listmonk \
-    --repo https://th0th.github.io/helm-charts \
-    --values values.yaml \
-    --version 0.1.0
+  --create-namespace \
+  --install listmonk listmonk \
+  --namespace listmonk \
+  --repo https://th0th.github.io/helm-charts \
+  --values values.yaml \
+  --version 0.1.0
 ```
 
 ## Uninstall

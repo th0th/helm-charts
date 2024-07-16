@@ -1,0 +1,6 @@
+apiVersion: v2
+appVersion: "4.0.2"
+name: node-red
+description: Low-code programming for event-driven applications.
+type: application
+version: 0.1.0

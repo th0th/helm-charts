@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "nodeRed.fullname" . }}-node-red
+  labels:
+    {{- include "nodeRed.labels" . | nindent 4 }}
+spec:
+  type: ClusterIP
+  selector:
+    statefulSet: node-red
+      {{- include "nodeRed.selectorLabels" . | nindent 4 }}
+  ports:
+    - name: http
+      port: 1880
+      protocol: TCP
+      targetPort: 1880

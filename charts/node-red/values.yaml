@@ -1,0 +1,32 @@
+ingress:
+  # -- annotations for the ingress
+  annotations: { }
+  # -- enable the ingress
+  enabled: false
+  # -- host for the ingress
+  host: node-red.local
+  # -- tls configuration for the ingress
+  tls: [ ]
+nodeRed:
+  image:
+    # -- node-red image repository
+    repository: nodered/node-red
+    # -- node-red image tag
+    tag: latest
+  persistence:
+    # -- enable persistence
+    enabled: true
+  # -- resources for the node-red statefulset
+  resources: { }
+  # -- node-red settings
+  settings:
+    # -- admin authentication config
+    adminAuth:
+      type: credentials
+      # -- list of users
+      users: [ ]
+  #        - password: "$2y$08$q7DQYqhJrLC0.NnLelnre.IUaE2wQX3/xBiQ1cyAuNva8i5A6760q"
+  #          permissions: "*"
+  #          username: admin
+  # -- time zone
+  timeZone: America/New_York
