@@ -12,4 +12,15 @@ entries:
     urls:
     - https://github.com/th0th/helm-charts/releases/download/listmonk-0.1.0/listmonk-0.1.0.tgz
     version: 0.1.0
-generated: "2024-04-26T09:02:11.665138578Z"
+  node-red:
+  - apiVersion: v2
+    appVersion: 4.0.2
+    created: "2024-07-16T18:17:12.044066626Z"
+    description: Low-code programming for event-driven applications.
+    digest: 8fef7242a3563a6caf39c85bd6dcb5e6c781aed5ac7f6b1aaba5df584184983d
+    name: node-red
+    type: application
+    urls:
+    - https://github.com/th0th/helm-charts/releases/download/node-red-0.1.0/node-red-0.1.0.tgz
+    version: 0.1.0
+generated: "2024-07-16T18:17:12.044072807Z"
