@@ -10,7 +10,7 @@ ingress:
 nodeRed:
   image:
     # -- node-red image repository
-    repository: nodered/node-red
+    repository: th0th/node-red
     # -- node-red image tag
     tag: latest
   persistence:
@@ -18,15 +18,18 @@ nodeRed:
     enabled: true
   # -- resources for the node-red statefulset
   resources: { }
-  # -- node-red settings
+  # -- node-red settings (settings.js in YAML format). please refer to https://nodered.org/docs/user-guide/runtime/configuration
   settings:
     # -- admin authentication config
     adminAuth:
       type: credentials
       # -- list of users
       users: [ ]
-  #        - password: "$2y$08$q7DQYqhJrLC0.NnLelnre.IUaE2wQX3/xBiQ1cyAuNva8i5A6760q"
+  #        - password: "$2y$08$q7DQYqhJrLC0.NnLelnre.IUaE2wQX3/xBiQ1cyAuNva8i5A6760q" // encrypted "changeme"
   #          permissions: "*"
   #          username: admin
+    editorTheme:
+      projects:
+        enabled: false
   # -- time zone
   timeZone: America/New_York
