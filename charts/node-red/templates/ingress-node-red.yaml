@@ -9,16 +9,19 @@ metadata:
       {{- toYaml .Values.ingress.annotations | nindent 4 }}
 spec:
   rules:
-    - host: {{ .Values.ingress.host}}
+    {{ $fullName := include "nodeRed.fullname" . }}
+    {{- range .Values.ingress.hosts }}
+    - host: {{ . }}
       http:
         paths:
           - backend:
               service:
-                name: '{{ include "nodeRed.fullname" . }}-node-red'
+                name: '{{ $fullName }}-node-red'
                 port:
                   name: http
             path: /
             pathType: Prefix
+    {{- end }}
   tls:
     {{- toYaml .Values.ingress.tls | nindent 4 }}
 {{ end }}

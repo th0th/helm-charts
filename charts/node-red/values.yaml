@@ -3,8 +3,9 @@ ingress:
   annotations: { }
   # -- enable the ingress
   enabled: false
-  # -- host for the ingress
-  host: node-red.local
+  # -- hosts for the ingress
+  hosts:
+    - node-red.local
   # -- tls configuration for the ingress
   tls: [ ]
 nodeRed:
