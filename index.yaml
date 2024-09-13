@@ -14,6 +14,16 @@ entries:
     version: 0.1.0
   node-red:
   - apiVersion: v2
+    appVersion: 4.0.2-debian
+    created: "2024-09-13T15:55:26.68698815Z"
+    description: Low-code programming for event-driven applications.
+    digest: faba5488cc2acddcd00ac90dc10ca0fc5214eee2a34d8f282ab8ac4c23077baa
+    name: node-red
+    type: application
+    urls:
+    - https://github.com/th0th/helm-charts/releases/download/node-red-0.2.0/node-red-0.2.0.tgz
+    version: 0.2.0
+  - apiVersion: v2
     appVersion: 4.0.2
     created: "2024-07-16T18:17:12.044066626Z"
     description: Low-code programming for event-driven applications.
@@ -23,4 +33,4 @@ entries:
     urls:
     - https://github.com/th0th/helm-charts/releases/download/node-red-0.1.0/node-red-0.1.0.tgz
     version: 0.1.0
-generated: "2024-07-16T18:17:12.044072807Z"
+generated: "2024-09-13T15:55:26.6870258Z"
