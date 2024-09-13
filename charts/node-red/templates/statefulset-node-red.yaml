@@ -25,7 +25,7 @@ spec:
         - env:
             - name: TZ
               value: {{ .Values.nodeRed.timeZone }}
-          image: {{ .Values.nodeRed.image.repository }}:{{ .Values.nodeRed.image.tag }}
+          image: {{ .Values.nodeRed.image.repository }}:{{ .Values.nodeRed.image.tag | default .Chart.AppVersion }}
           name: node-red
           resources: {{- toYaml .Values.nodeRed.resources | nindent 12 }}
           volumeMounts:

@@ -13,7 +13,7 @@ nodeRed:
     # -- node-red image repository
     repository: th0th/node-red
     # -- node-red image tag
-    tag: latest
+    tag: null
   persistence:
     # -- enable persistence
     enabled: true
