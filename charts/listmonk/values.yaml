@@ -21,6 +21,10 @@ listmonk:
   # -- the number of listmonk deployment replicas
   replicas: 1
 postgres:
+  # -- enable postgres
+  enable: true
+  # -- when not enabled, the external postgress service hostname is required
+  hostname: ""
   # -- the postgres database name
   database: listmonk
   image:
