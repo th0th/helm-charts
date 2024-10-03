@@ -21,6 +21,7 @@ spec:
         - ./listmonk
         - --idempotent
         - --install
+        - --yes
         image: {{ .Values.listmonk.image.repository }}:{{ .Values.listmonk.image.tag }}
         name: listmonk
         volumeMounts:
