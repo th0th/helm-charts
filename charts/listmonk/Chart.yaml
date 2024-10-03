@@ -3,4 +3,4 @@ appVersion: "3.0.0"
 name: listmonk
 description: High performance, self-hosted, newsletter and mailing list manager with a modern dashboard.
 type: application
-version: 0.1.0
+version: 0.1.1

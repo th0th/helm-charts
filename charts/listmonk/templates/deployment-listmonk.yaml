@@ -20,6 +20,7 @@ spec:
       - command:
         - ./listmonk
         - --idempotent
+        - --install
         image: {{ .Values.listmonk.image.repository }}:{{ .Values.listmonk.image.tag }}
         name: listmonk
         volumeMounts:
