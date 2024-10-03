@@ -18,10 +18,9 @@ spec:
     spec:
       containers:
       - command:
-        - ./listmonk
-        - --idempotent
-        - --install
-        - --yes
+        - /bin/sh
+        - -c 
+        - ./listmonk --idempotent --install --yes && ./listmonk
         image: {{ .Values.listmonk.image.repository }}:{{ .Values.listmonk.image.tag }}
         name: listmonk
         volumeMounts:
