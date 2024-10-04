@@ -1,19 +1,19 @@
 # listmonk
 
-![Version: 0.1.0](https://img.shields.io/badge/Version-0.1.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 3.0.0](https://img.shields.io/badge/AppVersion-3.0.0-informational?style=flat-square)
+![Version: 0.2.0](https://img.shields.io/badge/Version-0.2.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 3.0.0](https://img.shields.io/badge/AppVersion-3.0.0-informational?style=flat-square)
 
 High performance, self-hosted, newsletter and mailing list manager with a modern dashboard.
 
 ## Install
 
 ```shell
-$ helm upgrade \
+$ helm upgrade listmonk listmonk \
   --create-namespace \
-  --install listmonk listmonk \
+  --install \
   --namespace listmonk \
   --repo https://th0th.github.io/helm-charts \
   --values values.yaml \
-  --version 0.1.0
+  --version 0.2.0
 ```
 
 ## Uninstall

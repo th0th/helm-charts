@@ -17,15 +17,24 @@ spec:
         {{- include "listmonk.selectorLabels" . | nindent 8 }}
     spec:
       containers:
-      - command:
-        - ./listmonk
-        - --idempotent
-        image: {{ .Values.listmonk.image.repository }}:{{ .Values.listmonk.image.tag }}
+      - image: {{ .Values.listmonk.image.repository }}:{{ .Values.listmonk.image.tag }}
         name: listmonk
         volumeMounts:
         - mountPath: /listmonk/config.toml
           name: config
           subPath: config.toml
+      initContainers:
+        - name: init
+          image: {{ .Values.listmonk.image.repository }}:{{ .Values.listmonk.image.tag }}
+          command:
+          - ./listmonk
+          - --install
+          - --upgrade
+          - --yes
+          volumeMounts:
+          - mountPath: /listmonk/config.toml
+            name: config
+            subPath: config.toml
       volumes:
       - secret:
           secretName: {{ include "listmonk.fullname" . }}-listmonk
