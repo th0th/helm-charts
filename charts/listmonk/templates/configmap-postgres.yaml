@@ -6,4 +6,4 @@ metadata:
     {{- include "listmonk.labels" . | nindent 4 }}
 data:
   DATABASE: "{{ .Values.postgres.database}}"
-  HOST: "{{ include "listmonk.fullname" . }}-postgres"
+  HOST: {{ include "listmonk.postgresHostname" . | quote }}
