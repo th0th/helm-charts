@@ -45,6 +45,17 @@ entries:
     urls:
     - https://github.com/th0th/helm-charts/releases/download/listmonk-0.1.0/listmonk-0.1.0.tgz
     version: 0.1.0
+  n8n:
+  - apiVersion: v2
+    appVersion: 1.62.5
+    created: "2024-10-13T21:44:57.303393863Z"
+    description: An extendable workflow automation tool.
+    digest: 3125679ac34ff122fe11dae7020a067bfbfe4786ba37b9310ab8a37c58ce0c15
+    name: n8n
+    type: application
+    urls:
+    - https://github.com/th0th/helm-charts/releases/download/n8n-0.1.0/n8n-0.1.0.tgz
+    version: 0.1.0
   node-red:
   - apiVersion: v2
     appVersion: 4.0.3-debian
@@ -76,4 +87,4 @@ entries:
     urls:
     - https://github.com/th0th/helm-charts/releases/download/node-red-0.1.0/node-red-0.1.0.tgz
     version: 0.1.0
-generated: "2024-10-08T07:32:01.307428032Z"
+generated: "2024-10-13T21:44:57.30341393Z"
