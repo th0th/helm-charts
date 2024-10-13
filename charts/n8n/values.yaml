@@ -1,0 +1,36 @@
+# -- n8n encryption key (see [docs](https://docs.n8n.io/hosting/configuration/environment-variables/deployment/))
+encryptionKey: ""
+# -- environment variables to be passed to n8n (see [docs](https://docs.n8n.io/hosting/configuration/environment-variables/))
+env: {}
+image:
+  # -- n8n image pull policy
+  pullPolicy: IfNotPresent
+  # -- n8n image repository
+  repository: docker.n8n.io/n8nio/n8n
+  # -- n8n image tag
+  tag: 1.62.5
+ingress:
+  # -- the ingress annotations
+  annotations: {}
+  # -- enable the ingress
+  enabled: false
+  # -- the ingress host
+  hosts: []
+postgres:
+  # -- the postgres database name
+  database: n8n
+  # -- enable the postgres statefulset
+  enabled: true
+  image:
+    # -- the postgres image repository
+    repository: postgres
+    # -- the postgres image tag
+    tag: 17-alpine
+  # -- the postgres password
+  password: n8n
+  # -- resources configuration for the postgres statefulset
+  resources: {}
+  # -- the postgres user
+  user: n8n
+# -- number of n8n deployment replicas
+replicas: 1

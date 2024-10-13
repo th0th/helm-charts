@@ -1,0 +1,52 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    {{- include "n8n.labels" . | nindent 4 }}
+  name: {{ include "n8n.fullname" . }}-n8n
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      deployment: n8n
+      {{- include "n8n.selectorLabels" . | nindent 6 }}
+  strategy:
+    rollingUpdate:
+      maxSurge: 0
+      maxUnavailable: 1
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        deployment: n8n
+        {{- include "n8n.selectorLabels" . | nindent 8 }}
+    spec:
+      containers:
+      - env:
+        - name: DB_TYPE
+          value: postgresdb
+        - name: N8N_ENCRYPTION_KEY
+          value: {{ required "Please set .Values.encryptionKey" .Values.encryptionKey | quote }}
+        {{ range $key, $value := .Values.env }}
+        - name: {{ $key }}
+          value: {{ $value | quote }}
+        {{ end }}
+        envFrom:
+        - configMapRef:
+            name: {{ include "n8n.fullname" . }}-postgres
+            optional: false
+          prefix: DB_POSTGRESDB_
+        - secretRef:
+            name: {{ include "n8n.fullname" . }}-postgres
+            optional: false
+          prefix: DB_POSTGRESDB_
+        image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
+        imagePullPolicy: {{ .Values.image.pullPolicy }}
+        name: n8n
+        volumeMounts:
+        - mountPath: /home/node/.n8n
+          name: data
+      volumes:
+      - emptyDir: { }
+        name: data
+

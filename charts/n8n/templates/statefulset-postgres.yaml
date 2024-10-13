@@ -1,0 +1,64 @@
+{{ if .Values.postgres.enabled }}
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  labels:
+    {{- include "n8n.labels" . | nindent 4 }}
+  name: {{ include "n8n.fullname" . }}-postgres
+spec:
+  replicas: {{ .Values.replicas }}
+  selector:
+    matchLabels:
+      statefulSet: postgres
+      {{- include "n8n.selectorLabels" . | nindent 6 }}
+  serviceName: postgres-hl
+  template:
+    metadata:
+      labels:
+        statefulSet: postgres
+        {{- include "n8n.selectorLabels" . | nindent 8 }}
+      name: postgres
+    spec:
+      containers:
+      - env:
+        - name: POSTGRES_DB
+          valueFrom:
+            configMapKeyRef:
+              key: DATABASE
+              name: {{ include "n8n.fullname" . }}-postgres
+              optional: false
+        - name: POSTGRES_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              key: PASSWORD
+              name: {{ include "n8n.fullname" . }}-postgres
+              optional: false
+        - name: POSTGRES_USER
+          valueFrom:
+            secretKeyRef:
+              key: USER
+              name: {{ include "n8n.fullname" . }}-postgres
+              optional: false
+        image: {{ .Values.postgres.image.repository }}:{{ .Values.postgres.image.tag }}
+        name: postgres
+        resources: {{- toYaml .Values.postgres.resources | nindent 10 }}
+        volumeMounts:
+        - mountPath: /var/lib/postgresql/data
+          name: data
+          subPath: postgres
+  persistentVolumeClaimRetentionPolicy:
+    whenDeleted: Retain
+    whenScaled: Retain
+  volumeClaimTemplates:
+  - kind: PersistentVolumeClaim
+    apiVersion: v1
+    metadata:
+      name: data
+    spec:
+      accessModes:
+      - ReadWriteOnce
+      resources:
+        requests:
+          storage: 10Gi
+      volumeMode: Filesystem
+{{ end}}
