@@ -2,7 +2,7 @@ ingress:
   # -- annotations for the ingress
   annotations: {}
   # -- enable the ingress
-  enable: false
+  enabled: false
   # -- host for the ingress
   host: listmonk.local
   # -- tls configuration for the ingress
@@ -22,7 +22,7 @@ listmonk:
   replicas: 1
 postgres:
   # -- enable postgres
-  enable: true
+  enabled: true
   # -- when not enabled, the external postgress service hostname is required
   hostname: ""
   # -- the postgres database name

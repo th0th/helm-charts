@@ -42,9 +42,9 @@ app.kubernetes.io/instance: {{ .Release.Name }}
 {{- end }}
 
 {{- define "listmonk.postgresHostname" -}}
-{{- if .Values.postgres.enable }}
+{{- if .Values.postgres.enabled }}
 {{- printf "%s-postgres" (include "listmonk.fullname" .) -}}
 {{- else }}
-{{- required ".Values.postgres.hostname is required"  .Values.postgres.hostname }}
+{{- required ".Values.postgres.hostname is required when chart's postgres is disabled"  .Values.postgres.hostname }}
 {{- end }}
 {{- end }}
