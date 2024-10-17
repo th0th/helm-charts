@@ -6,7 +6,6 @@ metadata:
     {{- include "n8n.labels" . | nindent 4 }}
   name: {{ include "n8n.fullname" . }}-postgres
 spec:
-  replicas: {{ .Values.replicas }}
   selector:
     matchLabels:
       statefulSet: postgres
