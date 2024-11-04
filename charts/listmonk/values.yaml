@@ -2,29 +2,24 @@ ingress:
   # -- annotations for the ingress
   annotations: {}
   # -- enable the ingress
-  enabled: false
+  enabled: true
   # -- host for the ingress
-  host: listmonk.local
+  host: localhost
   # -- tls configuration for the ingress
   tls: []
 listmonk:
-  admin:
-    # -- the admin password
-    password: ""
-    # -- the admin username
-    username: ""
   image:
     # -- the listmonk image repository
     repository: listmonk/listmonk
     # -- the listmonk image tag
-    tag: v3.0.0
+    tag: v4.0.1
   # -- the number of listmonk deployment replicas
   replicas: 1
 postgres:
   # -- enable postgres
   enabled: true
   # -- when not enabled, the external postgress service hostname is required
-  hostname: ""
+  hostname: "listmonk"
   # -- the postgres database name
   database: listmonk
   image:
@@ -33,8 +28,8 @@ postgres:
     # -- the postgres image tag
     tag: 16-alpine
   # -- the postgres password
-  password: ""
+  password: "listmonk"
   # -- resources configuration for the postgres statefulset
   resources: {}
   # -- the postgres username
-  user: ""
+  user: "listmonk"

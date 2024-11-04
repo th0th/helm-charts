@@ -7,18 +7,14 @@ metadata:
 data:
   config.toml: |
     [app]
-      admin_username = "{{ required "A valid .Values.listmonk.admin.username is required!" .Values.listmonk.admin.username }}"
-      admin_password = "{{ required "A valid .Values.listmonk.admin.password is required!" .Values.listmonk.admin.password }}"
-      address = "0.0.0.0:80"
+    address = "0.0.0.0:80"
 
     # Database.
-      [db]
-      host = "{{- include "listmonk.fullname" .}}-postgres"
-      port = 5432
-      user = "{{ .Values.postgres.user}}"
-      password = "{{ .Values.postgres.password }}"
-      database = "{{ .Values.postgres.database }}"
-      ssl_mode = "disable"
-      max_open = 25
-      max_idle = 25
-      max_lifetime = "300s"
+    [db]
+    host = "{{- include "listmonk.fullname" .}}-postgres"
+    port = 5432
+    database = "{{ .Values.postgres.database }}"
+    ssl_mode = "disable"
+    max_open = 25
+    max_idle = 25
+    max_lifetime = "300s"
