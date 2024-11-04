@@ -3,14 +3,14 @@ kind: ConfigMap
 metadata:
   name: {{ include "listmonk.fullname" . }}-listmonk
   labels:
-    {{- include "listmonk.labels" . | nindent 4 }}
+    {{ include "listmonk.labels" . | nindent 4 }}
 data:
   config.toml: |
     [app]
     address = "0.0.0.0:80"
 
     [db]
-    host = "{{- include "listmonk.fullname" .}}-postgres"
+    host = "{{ include "listmonk.fullname" .}}-postgres"
     port = 5432
     database = "{{ .Values.postgres.database }}"
     ssl_mode = "disable"

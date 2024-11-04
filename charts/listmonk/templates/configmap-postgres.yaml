@@ -3,7 +3,7 @@ kind: ConfigMap
 metadata:
   name: {{ include "listmonk.fullname" . }}-postgres
   labels:
-    {{- include "listmonk.labels" . | nindent 4 }}
+    {{ include "listmonk.labels" . | nindent 4 }}
 data:
-  DATABASE: "{{ .Values.postgres.database}}"
+  DATABASE: {{ .Values.postgres.database | quote }}
   HOST: {{ include "listmonk.postgresHostname" . | quote }}

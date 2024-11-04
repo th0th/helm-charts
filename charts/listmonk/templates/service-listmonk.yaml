@@ -3,12 +3,12 @@ kind: Service
 metadata:
   name: {{ include "listmonk.fullname" . }}-listmonk
   labels:
-    {{- include "listmonk.labels" . | nindent 4 }}
+    {{ include "listmonk.labels" . | nindent 4 }}
 spec:
   type: ClusterIP
   selector:
     deployment: listmonk
-      {{- include "listmonk.selectorLabels" . | nindent 4 }}
+    {{ include "listmonk.selectorLabels" . | nindent 4 }}
   ports:
   - name: http
     port: 80

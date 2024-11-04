@@ -3,18 +3,18 @@ kind: Deployment
 metadata:
   name: {{ include "listmonk.fullname" . }}-listmonk
   labels:
-    {{- include "listmonk.labels" . | nindent 4 }}
+    {{ include "listmonk.labels" . | nindent 4 }}
 spec:
   replicas: {{ .Values.listmonk.replicas}}
   selector:
     matchLabels:
       deployment: listmonk
-      {{- include "listmonk.selectorLabels" . | nindent 6 }}
+      {{ include "listmonk.selectorLabels" . | nindent 6 }}
   template:
     metadata:
       labels:
         deployment: listmonk
-        {{- include "listmonk.selectorLabels" . | nindent 8 }}
+        {{ include "listmonk.selectorLabels" . | nindent 8 }}
     spec:
       containers:
       - env:
@@ -37,10 +37,9 @@ spec:
         name: init
         image: {{ .Values.listmonk.image.repository }}:{{ .Values.listmonk.image.tag | default .Chart.AppVersion }}
         command:
-        - ./listmonk
-        - --install
-        - --upgrade
-        - --yes
+        - sh
+        - -c
+        - "./listmonk --install --idempotent --yes && ./listmonk --upgrade --yes"
         volumeMounts:
         - mountPath: /listmonk/config.toml
           name: config
