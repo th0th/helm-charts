@@ -19,7 +19,7 @@ postgres:
   # -- enable postgres
   enabled: true
   # -- when not enabled, the external postgress service hostname is required
-  hostname: "listmonk"
+  hostname: ""
   # -- the postgres database name
   database: listmonk
   image:
