@@ -9,7 +9,6 @@ data:
     [app]
     address = "0.0.0.0:80"
 
-    # Database.
     [db]
     host = "{{- include "listmonk.fullname" .}}-postgres"
     port = 5432

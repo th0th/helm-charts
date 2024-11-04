@@ -18,7 +18,7 @@ listmonk:
 postgres:
   # -- enable postgres
   enabled: true
-  # -- when not enabled, the external postgress service hostname is required
+  # -- when not enabled, the external postgres service hostname is required
   hostname: ""
   # -- the postgres database name
   database: listmonk
