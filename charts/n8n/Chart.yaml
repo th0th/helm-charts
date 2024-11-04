@@ -1,6 +1,6 @@
 apiVersion: v2
-appVersion: "1.63.4"
+appVersion: "1.65.2"
 name: n8n
 description: An extendable workflow automation tool.
 type: application
-version: 0.1.2
+version: 0.1.3
