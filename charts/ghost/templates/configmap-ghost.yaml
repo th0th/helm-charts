@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  labels:
+    {{ include "ghost.labels" . | nindent 4 }}
+  name: {{ include "ghost.fullname" . }}-ghost
+data:
+  {{ range $key, $value := .Values.extraEnvVars }}
+  {{ $key }}: {{ $value | quote }}
+  {{ end }}
+  mail__from: {{ required "A valid .Values.mail.from is required" .Values.mail.from | quote }}
+  mail__options__auth__pass: {{ required "A valid .Values.mail.password is required" .Values.mail.password | quote }}
+  mail__options__auth__user: {{ required "A valid .Values.mail.user is required" .Values.mail.user | quote }}
+  mail__options__host: {{ required "A valid .Values.mail.host is required" .Values.mail.host | quote }}
+  mail__options__port: {{ required "A valid .Values.mail.port is required" .Values.mail.port | quote }}
+  mail__options__secure: {{ required "A valid .Values.mail.secure is required" .Values.mail.secure | quote }}
+  mail__transport: "SMTP"
+  url: {{ required "A valid .Values.url is required" .Values.url | quote }}

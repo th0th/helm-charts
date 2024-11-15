@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  labels:
+    {{ include "ghost.labels" . | nindent 4 }}
+  name: {{ include "ghost.fullname" . }}-mysql
+data:
+  DATABASE: {{ .Values.mysql.database | quote }}
+  HOST: "{{ include "ghost.fullname" . }}-mysql"
+  PORT: "3306"

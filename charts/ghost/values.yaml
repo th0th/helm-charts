@@ -1,0 +1,57 @@
+# -- extra env variables for ghost (see https://ghost.org/docs/config)
+extraEnvVars: {}
+image:
+  # -- ghost image pull policy
+  pullPolicy: IfNotPresent
+  # -- ghost image repository
+  repository: ghost
+  # -- ghost image tag
+  tag: ""
+ingress:
+  # -- ingress annotations
+  annotations: {}
+  # -- enable ingress
+  enabled: false
+  # -- ingress hosts
+  hosts: []
+mail:
+  # -- default from e-mail address
+  from: ""
+  # -- SMTP host
+  host: ""
+  # -- SMTP password
+  password: ""
+  # -- SMTP port
+  port: ""
+  # -- SMTP protocol (true means SSL is enabled)
+  secure: true
+  # -- SMTP user
+  user: ""
+mysql:
+  # -- mysql database name
+  database: ghost
+  image:
+    # -- mysql image pull policy
+    pullPolicy: IfNotPresent
+    # -- mysql image repository
+    repository: mysql
+    # -- mysql image tag
+    tag: 8
+  # -- mysql password
+  password: ""
+  persistence:
+    # -- mysql pvc size
+    size: 10Gi
+  # -- resources for mysql
+  resources: {}
+  # -- mysql root password
+  rootPassword: ""
+  # -- mysql user
+  user: ghost
+persistence:
+  # -- ghost pvc size
+  size: 10Gi
+# -- resources for ghost
+resources: {}
+# -- url for ghost
+url: ""

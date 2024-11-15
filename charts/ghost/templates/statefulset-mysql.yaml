@@ -1,0 +1,68 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  labels:
+    {{ include "ghost.labels" . | nindent 4 }}
+  name: {{ include "ghost.fullname" . }}-mysql
+spec:
+  persistentVolumeClaimRetentionPolicy:
+    whenDeleted: Retain
+    whenScaled: Retain
+  selector:
+    matchLabels:
+      statefulSet: mysql
+      {{ include "ghost.selectorLabels" . | nindent 6 }}
+  serviceName: mysql-hl
+  template:
+    metadata:
+      labels:
+        statefulSet: mysql
+        {{ include "ghost.selectorLabels" . | nindent 8 }}
+      name: mysql
+    spec:
+      containers:
+      - env:
+        - name: MYSQL_DATABASE
+          valueFrom:
+            configMapKeyRef:
+              key: DATABASE
+              name: {{ include "ghost.fullname" . }}-mysql
+              optional: false
+        - name: MYSQL_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              key: PASSWORD
+              name: {{ include "ghost.fullname" . }}-mysql
+              optional: false
+        - name: MYSQL_ROOT_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              key: ROOT_PASSWORD
+              name: {{ include "ghost.fullname" . }}-mysql
+              optional: false
+        - name: MYSQL_USER
+          valueFrom:
+            secretKeyRef:
+              key: USER
+              name: {{ include "ghost.fullname" . }}-mysql
+              optional: false
+        image: {{ .Values.mysql.image.repository }}:{{ .Values.mysql.image.tag }}
+        imagePullPolicy: {{ .Values.mysql.image.pullPolicy }}
+        name: mysql
+        resources: {{ toYaml .Values.mysql.resources | nindent 10 }}
+        volumeMounts:
+        - mountPath: /var/lib/mysql
+          name: data
+          subPath: mysql-data
+  volumeClaimTemplates:
+  - kind: PersistentVolumeClaim
+    apiVersion: v1
+    metadata:
+      name: data
+    spec:
+      accessModes:
+      - ReadWriteOnce
+      resources:
+        requests:
+          storage: {{ .Values.mysql.persistence.size }}
+      volumeMode: Filesystem

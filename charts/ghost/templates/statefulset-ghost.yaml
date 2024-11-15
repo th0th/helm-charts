@@ -1,0 +1,69 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  labels:
+    {{ include "ghost.labels" . | nindent 4 }}
+  name: {{ include "ghost.fullname" . }}-ghost
+spec:
+  persistentVolumeClaimRetentionPolicy:
+    whenDeleted: Retain
+    whenScaled: Retain
+  selector:
+    matchLabels:
+      statefulSet: ghost
+      {{ include "ghost.selectorLabels" . | nindent 6 }}
+  serviceName: ghost-hl
+  template:
+    metadata:
+      labels:
+        statefulSet: ghost
+        {{ include "ghost.selectorLabels" . | nindent 8 }}
+      name: ghost
+    spec:
+      containers:
+      - env:
+        - name: database__client
+          value: mysql
+        - name: database__connection__database
+          valueFrom:
+            configMapKeyRef:
+              key: DATABASE
+              name: {{ include "ghost.fullname" . }}-mysql
+        - name: database__connection__host
+          valueFrom:
+            configMapKeyRef:
+              key: HOST
+              name: {{ include "ghost.fullname" . }}-mysql
+        - name: database__connection__password
+          valueFrom:
+            secretKeyRef:
+              key: PASSWORD
+              name: {{ include "ghost.fullname" . }}-mysql
+        - name: database__connection__user
+          valueFrom:
+            secretKeyRef:
+              key: USER
+              name: {{ include "ghost.fullname" . }}-mysql
+        envFrom:
+        - configMapRef:
+            name: {{ include "ghost.fullname" . }}-ghost
+        image: {{ .Values.image.repository }}:{{ default .Values.image.tag (printf "%s-alpine" .Chart.AppVersion) }}
+        imagePullPolicy: {{ .Values.image.pullPolicy }}
+        name: ghost
+        resources: {{ toYaml .Values.resources | nindent 10 }}
+        volumeMounts:
+        - mountPath: /var/lib/ghost/content
+          name: data
+          subPath: ghost-data
+  volumeClaimTemplates:
+  - kind: PersistentVolumeClaim
+    apiVersion: v1
+    metadata:
+      name: data
+    spec:
+      accessModes:
+      - ReadWriteOnce
+      resources:
+        requests:
+          storage: {{ .Values.persistence.size }}
+      volumeMode: Filesystem

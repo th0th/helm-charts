@@ -4,6 +4,7 @@ A collection of helm charts.
 
 ## Available charts
 
+* [ghost](./charts/ghost)
 * [listmonk](./charts/listmonk)
 * [n8n](./charts/n8n)
 * [node-red](./charts/node-red)

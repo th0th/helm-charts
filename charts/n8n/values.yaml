@@ -14,7 +14,7 @@ ingress:
   annotations: {}
   # -- enable the ingress
   enabled: false
-  # -- the ingress host
+  # -- the ingress hosts
   hosts: []
 postgres:
   # -- the postgres database name
