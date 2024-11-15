@@ -8,7 +8,7 @@ image:
   # -- n8n image repository
   repository: docker.n8n.io/n8nio/n8n
   # -- n8n image tag
-  tag: 1.66.0
+  tag: 1.67.1
 ingress:
   # -- the ingress annotations
   annotations: {}
