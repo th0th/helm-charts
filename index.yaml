@@ -2,6 +2,17 @@ apiVersion: v1
 entries:
   listmonk:
   - apiVersion: v2
+    appVersion: 4.1.0
+    created: "2024-11-15T11:12:32.840327368Z"
+    description: High performance, self-hosted, newsletter and mailing list manager
+      with a modern dashboard.
+    digest: 3b11eaadc870c40e7c7a418502d41ff5ebb378d3d78f5d300b282722f08f2344
+    name: listmonk
+    type: application
+    urls:
+    - https://github.com/th0th/helm-charts/releases/download/listmonk-0.3.1/listmonk-0.3.1.tgz
+    version: 0.3.1
+  - apiVersion: v2
     appVersion: 4.0.1
     created: "2024-11-04T14:01:33.026186398Z"
     description: High performance, self-hosted, newsletter and mailing list manager
@@ -138,4 +149,4 @@ entries:
     urls:
     - https://github.com/th0th/helm-charts/releases/download/node-red-0.1.0/node-red-0.1.0.tgz
     version: 0.1.0
-generated: "2024-11-09T17:32:19.075711138Z"
+generated: "2024-11-15T11:12:32.840365078Z"
