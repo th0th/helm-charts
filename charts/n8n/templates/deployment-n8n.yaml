@@ -33,6 +33,9 @@ spec:
         {{ end }}
         envFrom:
         - configMapRef:
+            name: {{ include "n8n.fullname" . }}-n8n
+            optional: false
+        - configMapRef:
             name: {{ include "n8n.fullname" . }}-postgres
             optional: false
           prefix: DB_POSTGRESDB_
@@ -40,7 +43,7 @@ spec:
             name: {{ include "n8n.fullname" . }}-postgres
             optional: false
           prefix: DB_POSTGRESDB_
-        image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
+        image: {{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}
         imagePullPolicy: {{ .Values.image.pullPolicy }}
         name: n8n
         volumeMounts:
