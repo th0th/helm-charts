@@ -36,7 +36,7 @@ mysql:
     # -- mysql image repository
     repository: mysql
     # -- mysql image tag
-    tag: 8
+    tag: 9
   # -- mysql password
   password: ""
   persistence:
