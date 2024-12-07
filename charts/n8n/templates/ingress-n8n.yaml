@@ -1,11 +1,11 @@
-{{- if .Values.ingress.enabled }}
+{{ if .Values.ingress.enabled }}
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   annotations:
-    {{- toYaml .Values.ingress.annotations | nindent 4 }}
+    {{ toYaml .Values.ingress.annotations | nindent 4 }}
   labels:
-    {{- include "n8n.labels" . | nindent 4 }}
+    {{ include "n8n.labels" . | nindent 4 }}
   name: {{ include "n8n.fullname" . }}-n8n
 spec:
   rules:
@@ -24,8 +24,8 @@ spec:
   {{ end }}
   tls:
   - hosts:
-    {{- range .Values.ingress.hosts }}
+    {{ range .Values.ingress.hosts }}
     - {{ . }}
-    {{- end }}
+    {{ end }}
     secretName: {{ include "n8n.fullname" . }}-n8n-tls
-{{- end }}
+{{ end }}
