@@ -1,0 +1,8 @@
+rules:
+  key-duplicates:
+    forbid-duplicated-merge-keys: false
+  key-ordering: {}
+  new-lines:
+    type: unix
+yaml-files:
+- 'etc/*.yaml'
