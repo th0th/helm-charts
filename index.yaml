@@ -2,6 +2,17 @@ apiVersion: v1
 entries:
   ghost:
   - apiVersion: v2
+    appVersion: 5.103.0
+    created: "2024-12-07T11:20:02.683206431Z"
+    description: Independent technology for modern publishing, memberships, subscriptions
+      and newsletters.
+    digest: 34457877f18d3ab5b8bb3e707adcd524c9fe27e4d91ed0b5f905643c03be7b54
+    name: ghost
+    type: application
+    urls:
+    - https://github.com/th0th/helm-charts/releases/download/ghost-0.0.2/ghost-0.0.2.tgz
+    version: 0.0.2
+  - apiVersion: v2
     appVersion: 5.100.1
     created: "2024-11-15T14:31:38.972509866Z"
     description: Independent technology for modern publishing, memberships, subscriptions
@@ -80,6 +91,16 @@ entries:
     - https://github.com/th0th/helm-charts/releases/download/listmonk-0.1.0/listmonk-0.1.0.tgz
     version: 0.1.0
   n8n:
+  - apiVersion: v2
+    appVersion: 1.71.1
+    created: "2024-12-07T11:20:02.945971865Z"
+    description: An extendable workflow automation tool.
+    digest: 1b34f041062ddd5c87e35668d244be8a3ed809ea309455cf60e8fc200f39e2fd
+    name: n8n
+    type: application
+    urls:
+    - https://github.com/th0th/helm-charts/releases/download/n8n-0.1.7/n8n-0.1.7.tgz
+    version: 0.1.7
   - apiVersion: v2
     appVersion: 1.68.0
     created: "2024-11-21T16:26:58.604650145Z"
@@ -181,4 +202,4 @@ entries:
     urls:
     - https://github.com/th0th/helm-charts/releases/download/node-red-0.1.0/node-red-0.1.0.tgz
     version: 0.1.0
-generated: "2024-11-21T16:26:58.604708213Z"
+generated: "2024-12-07T11:20:03.081143546Z"
