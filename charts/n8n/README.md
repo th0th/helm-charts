@@ -2,7 +2,7 @@
 
 [![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)](#)
 [![Version: 0.1.8](https://img.shields.io/badge/Version-0.1.8-informational?style=flat-square)](#)
-[![AppVersion: 1.71.3](https://img.shields.io/badge/AppVersion-1.71.3-informational?style=flat-square)](#)
+[![AppVersion: 1.72.1](https://img.shields.io/badge/AppVersion-1.72.1-informational?style=flat-square)](#)
 
 An extendable workflow automation tool.
 
@@ -32,7 +32,7 @@ $ helm uninstall --namespace n8n n8n
 | env                       | object | `{}`                        | environment variables to be passed to n8n (see [docs](https://docs.n8n.io/hosting/configuration/environment-variables/)) |
 | image.pullPolicy          | string | `"IfNotPresent"`            | n8n image pull policy                                                                                                    |
 | image.repository          | string | `"docker.n8n.io/n8nio/n8n"` | n8n image repository                                                                                                     |
-| image.tag                 | string | `"1.71.3"`                  | n8n image tag                                                                                                            |
+| image.tag                 | string | `"1.72.1"`                  | n8n image tag                                                                                                            |
 | ingress.annotations       | object | `{}`                        | the ingress annotations                                                                                                  |
 | ingress.enabled           | bool   | `false`                     | enable the ingress                                                                                                       |
 | ingress.hosts             | list   | `[]`                        | the ingress host                                                                                                         |
