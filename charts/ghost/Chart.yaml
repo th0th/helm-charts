@@ -1,6 +1,6 @@
 apiVersion: v2
-appVersion: "5.105.0"
+appVersion: "5.107.2"
 description: Independent technology for modern publishing, memberships, subscriptions and newsletters.
 name: ghost
 type: application
-version: 0.0.3
+version: 0.0.4
