@@ -1,8 +1,8 @@
 # listmonk
 
 [![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)](#)
-[![Version: 0.0.4](https://img.shields.io/badge/Version-0.0.4-informational?style=flat-square)](#)
-[![AppVersion: 5.107.2](https://img.shields.io/badge/AppVersion-5.107.2-informational?style=flat-square)](#)
+[![Version: 0.0.5](https://img.shields.io/badge/Version-0.0.5-informational?style=flat-square)](#)
+[![AppVersion: 5.109.2](https://img.shields.io/badge/AppVersion-5.109.2-informational?style=flat-square)](#)
 
 Independent technology for modern publishing, memberships, subscriptions and newsletters.
 
@@ -15,7 +15,7 @@ $ helm upgrade ghost ghost \
   --namespace ghost \
   --repo https://th0th.github.io/helm-charts \
   --values values.yaml \
-  --version 0.0.4
+  --version 0.0.5
 ```
 
 ## Uninstall
