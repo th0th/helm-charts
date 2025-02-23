@@ -3,6 +3,8 @@ ingress:
   annotations: {}
   # -- enable the ingress
   enabled: false
+  # -- ingress class name
+  className: ""
   # -- host for the ingress
   host: listmonk.local
   # -- tls configuration for the ingress
