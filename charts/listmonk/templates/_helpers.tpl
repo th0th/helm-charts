@@ -68,7 +68,7 @@ Set postgres host
 {{- if .Values.postgresql.enabled -}}
 {{- template "listmonk.postgresql.fullname" . -}}
 {{- else -}}
-{{- .Values.postgresql.postgresqlHost | quote -}}
+{{- .Values.postgresql.host -}}
 {{- end -}}
 {{- end -}}
 
@@ -88,8 +88,8 @@ Set postgres secretKey
 */}}
 {{- define "listmonk.postgresql.secretKey" -}}
 {{- if .Values.postgresql.enabled -}}
-"postgresql-password"
+"password"
 {{- else -}}
-{{- default "postgresql-password" .Values.postgresql.existingSecretKey | quote -}}
+{{- default "password" .Values.postgresql.auth.secretKeys.userPasswordKey | quote -}}
 {{- end -}}
 {{- end -}}
