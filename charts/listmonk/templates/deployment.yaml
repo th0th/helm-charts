@@ -19,9 +19,16 @@ spec:
       containers:
       - env:
         - name: LISTMONK_db__user
-          value: {{ .Values.postgres.user }}
+          value: {{ .Values.postgresql.postgresqlUser }}
         - name: LISTMONK_db__password
-          value: {{ .Values.postgres.password }}
+          valueFrom:
+            secretKeyRef:
+            {{- if .Values.postgresql.existingSecret }}
+              name: {{ .Values.postgresql.existingSecret }}
+            {{- else }}
+              name: {{ template "listmonk.postgresql.secret" . }}
+            {{- end }}
+              key: {{ template "listmonk.postgresql.secretKey" . }}
         image: {{ .Values.listmonk.image.repository }}:{{ .Values.listmonk.image.tag | default .Chart.AppVersion }}
         name: listmonk
         volumeMounts:
@@ -31,9 +38,16 @@ spec:
       initContainers:
       - env:
         - name: LISTMONK_db__user
-          value: {{ .Values.postgres.user }}
+          value: {{ .Values.postgresql.postgresqlUser }}
         - name: LISTMONK_db__password
-          value: {{ .Values.postgres.password }}
+          valueFrom:
+            secretKeyRef:
+            {{- if .Values.postgresql.existingSecret }}
+              name: {{ .Values.postgresql.existingSecret }}
+            {{- else }}
+              name: {{ template "listmonk.postgresql.secret" . }}
+            {{- end }}
+              key: {{ template "listmonk.postgresql.secretKey" . }}
         name: init
         image: {{ .Values.listmonk.image.repository }}:{{ .Values.listmonk.image.tag | default .Chart.AppVersion }}
         command:

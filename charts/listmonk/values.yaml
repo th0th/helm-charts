@@ -17,21 +17,63 @@ listmonk:
     tag: v4.1.0
   # -- the number of listmonk deployment replicas
   replicas: 1
-postgres:
-  # -- enable postgres
+
+## Configuration values for the postgresql dependency.
+## ref: https://github.com/bitnami/charts/tree/main/bitnami/postgresql/README.md
+##
+postgresql:
+  ## Use the PostgreSQL chart dependency.
+  ## Set to false if bringing your own PostgreSQL, and set secret value postgresql-uri.
+  ##
   enabled: true
-  # -- when not enabled, the external postgres service hostname is required
-  hostname: ""
-  # -- the postgres database name
-  database: listmonk
-  image:
-    # -- the postgres image repository
-    repository: postgres
-    # -- the postgres image tag
-    tag: 16-alpine
-  # -- the postgres password
-  password: ""
-  # -- resources configuration for the postgres statefulset
-  resources: {}
-  # -- the postgres username
-  user: "listmonk"
+  ## ssl enforce SSL communication with PostgresSQL
+  ## Default to false
+  ##
+  # ssl: false
+  ## ca Certificate of Authority
+  ## Default to empty, point to location of CA
+  ##
+  # ca: "path to ca"
+  ## postgresqlHost override postgres database host
+  ## Default to postgres
+  ##
+  # postgresqlHost: postgres
+  ## postgresqlPort port for postgres
+  ## Default to 5432
+  ##
+  # postgresqlPort: 5432
+  ## PostgreSQL fullname Override
+  ## Default to wiki-postgresql unless fullname override is set for Chart
+  ##
+  fullnameOverride: ""
+  ## PostgreSQL User to create.
+  ##
+  postgresqlUser: postgres
+  ## PostgreSQL Database to create.
+  ##
+  postgresqlDatabase: listmonk
+  ## Persistent Volume Storage configuration.
+  ## ref: https://kubernetes.io/docs/user-guide/persistent-volumes
+  ##
+  replication:
+    ## Enable PostgreSQL replication (primary/secondary)
+    ##
+    enabled: false
+  persistence:
+    ## Enable PostgreSQL persistence using Persistent Volume Claims.
+    ##
+    enabled: true
+    ## concourse data Persistent Volume Storage Class
+    ## If defined, storageClassName: <storageClass>
+    ## If set to "-", storageClassName: "", which disables dynamic provisioning
+    ## If undefined (the default) or set to null, no storageClassName spec is
+    ##   set, choosing the default provisioner.  (gp2 on AWS, standard on
+    ##   GKE, AWS & OpenStack)
+    ##
+    # storageClass: "-"
+    ## Persistent Volume Access Mode.
+    ##
+    accessMode: ReadWriteOnce
+    ## Persistent Volume Storage Size.
+    ##
+    size: 8Gi

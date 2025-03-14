@@ -48,3 +48,48 @@ app.kubernetes.io/instance: {{ .Release.Name }}
 {{- required ".Values.postgres.hostname is required when chart's postgres is disabled"  .Values.postgres.hostname }}
 {{- end }}
 {{- end }}
+
+{{/*
+Create a default fully qualified app name.
+We truncate at 63 chars because some Kubernetes name fields are limited to this (by the DNS naming spec).
+*/}}
+{{- define "listmonk.postgresql.fullname" -}}
+{{- if .Values.postgresql.fullnameOverride -}}
+{{- .Values.postgresql.fullnameOverride | trunc 63 | trimSuffix "-" -}}
+{{- else -}}
+{{ printf "%s-%s" .Release.Name "postgresql"}}
+{{- end -}}
+{{- end -}}
+
+{{/*
+Set postgres host
+*/}}
+{{- define "listmonk.postgresql.host" -}}
+{{- if .Values.postgresql.enabled -}}
+{{- template "listmonk.postgresql.fullname" . -}}
+{{- else -}}
+{{- .Values.postgresql.postgresqlHost | quote -}}
+{{- end -}}
+{{- end -}}
+
+{{/*
+Set postgres secret
+*/}}
+{{- define "listmonk.postgresql.secret" -}}
+{{- if .Values.postgresql.enabled -}}
+{{- template "listmonk.postgresql.fullname" . -}}
+{{- else -}}
+{{- template "listmonk.fullname" . -}}
+{{- end -}}
+{{- end -}}
+
+{{/*
+Set postgres secretKey
+*/}}
+{{- define "listmonk.postgresql.secretKey" -}}
+{{- if .Values.postgresql.enabled -}}
+"postgresql-password"
+{{- else -}}
+{{- default "postgresql-password" .Values.postgresql.existingSecretKey | quote -}}
+{{- end -}}
+{{- end -}}
