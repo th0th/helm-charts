@@ -1,8 +1,8 @@
 # n8n
 
 [![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)](#)
-[![Version: 1.82.3](https://img.shields.io/badge/Version-1.82.3-informational?style=flat-square)](#)
-[![AppVersion: 1.82.3](https://img.shields.io/badge/AppVersion-1.82.3-informational?style=flat-square)](#)
+[![Version: 1.83.2](https://img.shields.io/badge/Version-1.83.2-informational?style=flat-square)](#)
+[![AppVersion: 1.83.2](https://img.shields.io/badge/AppVersion-1.83.2-informational?style=flat-square)](#)
 
 An extendable workflow automation tool.
 
@@ -15,7 +15,7 @@ $ helm upgrade n8n n8n \
   --namespace n8n \
   --repo https://th0th.github.io/helm-charts \
   --values values.yaml \
-  --version 1.82.3
+  --version 1.83.2
 ```
 
 ## Uninstall
@@ -32,7 +32,7 @@ $ helm uninstall --namespace n8n n8n
 | env                       | object | `{}`                        | environment variables to be passed to n8n (see [docs](https://docs.n8n.io/hosting/configuration/environment-variables/)) |
 | image.pullPolicy          | string | `"IfNotPresent"`            | n8n image pull policy                                                                                                    |
 | image.repository          | string | `"docker.n8n.io/n8nio/n8n"` | n8n image repository                                                                                                     |
-| image.tag                 | string | `"1.82.3"`                  | n8n image tag                                                                                                            |
+| image.tag                 | string | `"1.83.2"`                  | n8n image tag                                                                                                            |
 | ingress.annotations       | object | `{}`                        | the ingress annotations                                                                                                  |
 | ingress.enabled           | bool   | `false`                     | enable the ingress                                                                                                       |
 | ingress.hosts             | list   | `[]`                        | the ingress host                                                                                                         |
