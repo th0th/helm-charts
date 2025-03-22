@@ -9,7 +9,7 @@
       <option name="fileExtension" value="yml" />
       <option name="immediateSync" value="true" />
       <option name="name" value="generate-schemas" />
-      <option name="output" value="$ProjectFileDir$/charts/*/values.schema.json" />
+      <option name="output" value="$ProjectFileDir$/charts/" />
       <option name="outputFilters">
         <array />
       </option>
