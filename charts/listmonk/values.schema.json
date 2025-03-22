@@ -75,7 +75,7 @@
                     "type": "string"
                 },
                 "resources": {
-                    "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.31.2/_definitions.json#/definitions/io.k8s.api.core.v1.ResourceRequirements",
+                    "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/refs/heads/master/v1.31.6/resourcerequirements.json",
                     "additionalProperties": false,
                     "type": "object"
                 },

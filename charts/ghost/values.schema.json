@@ -4,7 +4,7 @@
     "description": "Schema for ghost helm chart values",
     "properties": {
         "extraEnvVars": {
-            "additionalProperties": false,
+            "additionalProperties": true,
             "properties": {},
             "type": "object"
         },
@@ -27,7 +27,7 @@
             "additionalProperties": false,
             "properties": {
                 "annotations": {
-                    "additionalProperties": false,
+                    "additionalProperties": true,
                     "properties": {},
                     "type": "object"
                 },
@@ -121,8 +121,8 @@
             "type": "object"
         },
         "resources": {
+            "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/refs/heads/master/v1.31.6/resourcerequirements.json",
             "additionalProperties": false,
-            "properties": {},
             "type": "object"
         },
         "url": {

@@ -32,6 +32,6 @@ postgres:
   # -- the postgres password
   password: ""
   # -- resources configuration for the postgres statefulset
-  resources: {} # @schema $ref: https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.31.2/_definitions.json#/definitions/io.k8s.api.core.v1.ResourceRequirements ; skipProperties: true
+  resources: {} # @schema $ref: https://raw.githubusercontent.com/yannh/kubernetes-json-schema/refs/heads/master/v1.31.6/resourcerequirements.json ; skipProperties: true
   # -- the postgres username
   user: "listmonk"

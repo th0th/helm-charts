@@ -7,7 +7,7 @@
             "type": "string"
         },
         "env": {
-            "additionalProperties": false,
+            "additionalProperties": true,
             "properties": {},
             "type": "object"
         },
@@ -30,7 +30,7 @@
             "additionalProperties": false,
             "properties": {
                 "annotations": {
-                    "additionalProperties": false,
+                    "additionalProperties": true,
                     "properties": {},
                     "type": "object"
                 },
@@ -68,8 +68,8 @@
                     "type": "string"
                 },
                 "resources": {
+                    "$ref": "https://raw.githubusercontent.com/yannh/kubernetes-json-schema/refs/heads/master/v1.31.6/resourcerequirements.json",
                     "additionalProperties": false,
-                    "properties": {},
                     "type": "object"
                 },
                 "user": {

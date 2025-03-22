@@ -1,7 +1,7 @@
 # -- n8n encryption key (see [docs](https://docs.n8n.io/hosting/configuration/environment-variables/deployment/))
 encryptionKey: ""
 # -- environment variables to be passed to n8n (see [docs](https://docs.n8n.io/hosting/configuration/environment-variables/))
-env: {}
+env: {} # @schema additionalProperties: true
 image:
   # -- n8n image pull policy
   pullPolicy: IfNotPresent
@@ -11,7 +11,7 @@ image:
   tag: ""
 ingress:
   # -- the ingress annotations
-  annotations: {}
+  annotations: {} # @schema additionalProperties: true
   # -- enable the ingress
   enabled: false
   # -- the ingress hosts
@@ -29,7 +29,7 @@ postgres:
   # -- the postgres password
   password: n8n
   # -- resources configuration for the postgres statefulset
-  resources: {}
+  resources: {} # @schema $ref: https://raw.githubusercontent.com/yannh/kubernetes-json-schema/refs/heads/master/v1.31.6/resourcerequirements.json ; skipProperties: true
   # -- the postgres user
   user: n8n
 # -- number of n8n deployment replicas

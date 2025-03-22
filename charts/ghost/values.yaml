@@ -1,5 +1,5 @@
 # -- extra env variables for ghost (see https://ghost.org/docs/config)
-extraEnvVars: {}
+extraEnvVars: {} # @schema additionalProperties: true
 image:
   # -- ghost image pull policy
   pullPolicy: IfNotPresent
@@ -9,7 +9,7 @@ image:
   tag: ""
 ingress:
   # -- ingress annotations
-  annotations: {}
+  annotations: {} # @schema additionalProperties: true
   # -- enable ingress
   enabled: false
   # -- ingress hosts
@@ -52,6 +52,6 @@ persistence:
   # -- ghost pvc size
   size: 10Gi
 # -- resources for ghost
-resources: {}
+resources: {} # @schema $ref: https://raw.githubusercontent.com/yannh/kubernetes-json-schema/refs/heads/master/v1.31.6/resourcerequirements.json ; skipProperties: true
 # -- url for ghost
 url: ""
