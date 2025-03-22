@@ -26,23 +26,44 @@ $ helm uninstall --namespace listmonk listmonk
 
 ## Values
 
-| Key                       | Type   | Default               | Description                                          |
-|---------------------------|--------|-----------------------|------------------------------------------------------|
-| ingress.annotations       | object | `{}`                  | annotations for the ingress                          |
-| ingress.enable            | bool   | `false`               | enable the ingress                                   |
-| ingress.className         | string | `""`                  | ingress class name                                   |
-| ingress.host              | string | `"listmonk.local"`    | host for the ingress                                 |
-| ingress.tls               | list   | `[]`                  | tls configuration for the ingress                    |
-| listmonk.admin.password   | string | `""`                  | the admin password                                   |
-| listmonk.admin.username   | string | `""`                  | the admin username                                   |
-| listmonk.image.repository | string | `"listmonk/listmonk"` | the listmonk image repository                        |
-| listmonk.image.tag        | string | `"v4.1.0"`            | the listmonk image tag                               |
-| listmonk.replicas         | int    | `1`                   | the number of listmonk deployment replicas           |
-| postgres.enabled          | bool   | `true`                | enable internal postgres                             |
-| postgres.hostname         | string | `""`                  | external postgres hostname                           |
-| postgres.database         | string | `"listmonk"`          | the postgres database name                           |
-| postgres.image.repository | string | `"postgres"`          | the postgres image repository                        |
-| postgres.image.tag        | string | `"16-alpine"`         | the postgres image tag                               |
-| postgres.password         | string | `""`                  | the postgres password                                |
-| postgres.resources        | object | `{}`                  | resources configuration for the postgres statefulset |
-| postgres.user             | string | `""`                  | the postgres username                                |
+| Key                                        | Type   | Default               | Description                                            |
+|--------------------------------------------|--------|-----------------------|--------------------------------------------------------|
+| ingress.annotations                        | object | `{}`                  | annotations for the ingress                            |
+| ingress.enable                             | bool   | `false`               | enable the ingress                                     |
+| ingress.className                          | string | `""`                  | ingress class name                                     |
+| ingress.host                               | string | `"listmonk.local"`    | host for the ingress                                   |
+| ingress.tls                                | list   | `[]`                  | tls configuration for the ingress                      |
+| listmonk.admin.password                    | string | `""`                  | the admin password                                     |
+| listmonk.admin.username                    | string | `""`                  | the admin username                                     |
+| listmonk.image.repository                  | string | `"listmonk/listmonk"` | the listmonk image repository                          |
+| listmonk.image.tag                         | string | `"v4.1.0"`            | the listmonk image tag                                 |
+| listmonk.replicas                          | int    | `1`                   | the number of listmonk deployment replicas             |
+| postgresql.enabled                         | bool   | `true`                | Deploy postgres server (see below)                     |
+| postgresql.host                            | string | `""`                  | External postgres host                                 |
+| postgresql.auth.database                   | string | `"listmonk"`          | Postgres database name                                 |
+| postgresql.auth.username                   | string | `"listmonk"`          | Postgres username                                      |
+| postgresql.auth.existingSecret             | string | `""`                  | Provide an existing Secret for postgres                |
+| postgresql.auth.secretKeys.userPasswordKey | string | `"password"`          | The user password key in the existing Secret           |
+| postgresql.persistence.enabled             | bool   | `true`                | Enable postgres persistence using PVC                  |
+| postgresql.persistence.existingClaim       | string | `""`                  | Provide an existing PersistentVolumeClaim for postgres | 
+| postgresql.persistence.storageClass        | string | `""`                  | Postgres PVC Storage Class (example: nfs)              |
+| postgresql.persistence.size                | string | `"8Gi"`               | Postgers PVC Storage Request                           |
+
+## PostgresSQL
+
+By default, PostgreSQL is installed as part of the chart.
+
+### Using an external PostgreSQL server
+
+To use an external PostgreSQL server, set `postgresql.enabled` to `false` and then set `postgresql.host` and `postgresql.auth.password`. To use an existing `Secret`, set `postgresql.auth.existingSecret`. The other options (`postgresql.auth.database`, `postgresql.auth.username` and `postgresql.auth.secretKeys.userPasswordKey`) may also want changing from their default values.
+
+If `postgresql.auth.existingSecret` is not specified, you also need to add the following Helm template to your deployment in order to create the postgresql `Secret`:
+
+```yaml
+kind: Secret
+apiVersion: v1
+metadata:
+  name: {{ template "listmonk.postgresql.secret" . }}
+data:
+  {{ template "listmonk.postgresql.secretKey" . }}: "{{ .Values.postgresql.auth.password | b64enc }}"
+```

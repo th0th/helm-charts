@@ -4,3 +4,8 @@ description: High performance, self-hosted, newsletter and mailing list manager 
 name: listmonk
 type: application
 version: 0.3.3
+dependencies:
+  - name: postgresql
+    version: 16.5.0
+    repository: oci://registry-1.docker.io/bitnamicharts
+    condition: postgresql.enabled
