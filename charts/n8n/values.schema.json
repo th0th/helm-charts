@@ -1,0 +1,87 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "additionalProperties": false,
+    "description": "Schema for n8n helm chart values",
+    "properties": {
+        "encryptionKey": {
+            "type": "string"
+        },
+        "env": {
+            "additionalProperties": false,
+            "properties": {},
+            "type": "object"
+        },
+        "image": {
+            "additionalProperties": false,
+            "properties": {
+                "pullPolicy": {
+                    "type": "string"
+                },
+                "repository": {
+                    "type": "string"
+                },
+                "tag": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ingress": {
+            "additionalProperties": false,
+            "properties": {
+                "annotations": {
+                    "additionalProperties": false,
+                    "properties": {},
+                    "type": "object"
+                },
+                "enabled": {
+                    "type": "boolean"
+                },
+                "hosts": {
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "postgres": {
+            "additionalProperties": false,
+            "properties": {
+                "database": {
+                    "type": "string"
+                },
+                "enabled": {
+                    "type": "boolean"
+                },
+                "image": {
+                    "additionalProperties": false,
+                    "properties": {
+                        "repository": {
+                            "type": "string"
+                        },
+                        "tag": {
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                },
+                "password": {
+                    "type": "string"
+                },
+                "resources": {
+                    "additionalProperties": false,
+                    "properties": {},
+                    "type": "object"
+                },
+                "user": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "replicas": {
+            "type": "integer"
+        }
+    },
+    "title": "n8n helm values schema",
+    "type": "object"
+}

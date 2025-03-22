@@ -1,10 +1,10 @@
 ingress:
   # -- annotations for the ingress
   annotations: {}
-  # -- enable the ingress
-  enabled: false
   # -- ingress class name
   className: ""
+  # -- enable the ingress
+  enabled: false
   # -- host for the ingress
   host: listmonk.local
   # -- tls configuration for the ingress
@@ -18,12 +18,12 @@ listmonk:
   # -- the number of listmonk deployment replicas
   replicas: 1
 postgres:
+  # -- the postgres database name
+  database: listmonk
   # -- enable postgres
   enabled: true
   # -- when not enabled, the external postgres service hostname is required
   hostname: ""
-  # -- the postgres database name
-  database: listmonk
   image:
     # -- the postgres image repository
     repository: postgres

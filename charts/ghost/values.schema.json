@@ -1,0 +1,134 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "additionalProperties": false,
+    "description": "Schema for ghost helm chart values",
+    "properties": {
+        "extraEnvVars": {
+            "additionalProperties": false,
+            "properties": {},
+            "type": "object"
+        },
+        "image": {
+            "additionalProperties": false,
+            "properties": {
+                "pullPolicy": {
+                    "type": "string"
+                },
+                "repository": {
+                    "type": "string"
+                },
+                "tag": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "ingress": {
+            "additionalProperties": false,
+            "properties": {
+                "annotations": {
+                    "additionalProperties": false,
+                    "properties": {},
+                    "type": "object"
+                },
+                "enabled": {
+                    "type": "boolean"
+                },
+                "hosts": {
+                    "type": "array"
+                }
+            },
+            "type": "object"
+        },
+        "mail": {
+            "additionalProperties": false,
+            "properties": {
+                "from": {
+                    "type": "string"
+                },
+                "host": {
+                    "type": "string"
+                },
+                "password": {
+                    "type": "string"
+                },
+                "port": {
+                    "type": "string"
+                },
+                "secure": {
+                    "type": "boolean"
+                },
+                "user": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "mysql": {
+            "additionalProperties": false,
+            "properties": {
+                "database": {
+                    "type": "string"
+                },
+                "image": {
+                    "additionalProperties": false,
+                    "properties": {
+                        "pullPolicy": {
+                            "type": "string"
+                        },
+                        "repository": {
+                            "type": "string"
+                        },
+                        "tag": {
+                            "type": "integer"
+                        }
+                    },
+                    "type": "object"
+                },
+                "password": {
+                    "type": "string"
+                },
+                "persistence": {
+                    "additionalProperties": false,
+                    "properties": {
+                        "size": {
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                },
+                "resources": {
+                    "additionalProperties": false,
+                    "properties": {},
+                    "type": "object"
+                },
+                "rootPassword": {
+                    "type": "string"
+                },
+                "user": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "persistence": {
+            "additionalProperties": false,
+            "properties": {
+                "size": {
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "resources": {
+            "additionalProperties": false,
+            "properties": {},
+            "type": "object"
+        },
+        "url": {
+            "type": "string"
+        }
+    },
+    "title": "ghost helm values schema",
+    "type": "object"
+}
