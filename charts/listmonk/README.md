@@ -29,7 +29,7 @@ $ helm uninstall --namespace listmonk listmonk
 | Key                       | Type   | Default               | Description                                          |
 |---------------------------|--------|-----------------------|------------------------------------------------------|
 | ingress.annotations       | object | `{}`                  | annotations for the ingress                          |
-| ingress.enable            | bool   | `false`               | enable the ingress                                   |
+| ingress.enabled           | bool   | `false`               | enable the ingress                                   |
 | ingress.className         | string | `""`                  | ingress class name                                   |
 | ingress.host              | string | `"listmonk.local"`    | host for the ingress                                 |
 | ingress.tls               | list   | `[]`                  | tls configuration for the ingress                    |
