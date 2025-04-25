@@ -169,6 +169,16 @@ entries:
     version: 0.1.0
   n8n:
   - apiVersion: v2
+    appVersion: 1.89.2
+    created: "2025-04-25T10:24:15.880029228Z"
+    description: An extendable workflow automation tool.
+    digest: 6fba0a591d97fd08401826239ba9a36569fe4d8f1c3325433a1787cd3014e3b5
+    name: n8n
+    type: application
+    urls:
+    - https://github.com/th0th/helm-charts/releases/download/n8n-1.89.2/n8n-1.89.2.tgz
+    version: 1.89.2
+  - apiVersion: v2
     appVersion: 1.86.0
     created: "2025-04-08T19:41:38.299526764Z"
     description: An extendable workflow automation tool.
@@ -379,4 +389,4 @@ entries:
     urls:
     - https://github.com/th0th/helm-charts/releases/download/node-red-0.1.0/node-red-0.1.0.tgz
     version: 0.1.0
-generated: "2025-04-25T10:16:43.582386697Z"
+generated: "2025-04-25T10:24:15.880193126Z"
