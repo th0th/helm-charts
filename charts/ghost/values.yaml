@@ -22,7 +22,7 @@ mail:
   # -- SMTP password
   password: ""
   # -- SMTP port
-  port: ""
+  port: null # @schema type:[integer, null]
   # -- SMTP protocol (true means SSL is enabled)
   secure: true
   # -- SMTP user

@@ -53,7 +53,10 @@
                     "type": "string"
                 },
                 "port": {
-                    "type": "string"
+                    "type": [
+                        "integer",
+                        "null"
+                    ]
                 },
                 "secure": {
                     "type": "boolean"
