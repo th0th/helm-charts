@@ -2,6 +2,17 @@ apiVersion: v1
 entries:
   ghost:
   - apiVersion: v2
+    appVersion: 5.119.2
+    created: "2025-05-10T08:49:39.953301147Z"
+    description: Independent technology for modern publishing, memberships, subscriptions
+      and newsletters.
+    digest: 5bba0676f1c3dc08c48b7e90cc4979a3bd08c13b54e1ff29fd999101d89ea540
+    name: ghost
+    type: application
+    urls:
+    - https://github.com/th0th/helm-charts/releases/download/ghost-5.119.2/ghost-5.119.2.tgz
+    version: 5.119.2
+  - apiVersion: v2
     appVersion: 5.118.0
     created: "2025-04-25T10:10:26.529931586Z"
     description: Independent technology for modern publishing, memberships, subscriptions
@@ -389,4 +400,4 @@ entries:
     urls:
     - https://github.com/th0th/helm-charts/releases/download/node-red-0.1.0/node-red-0.1.0.tgz
     version: 0.1.0
-generated: "2025-04-25T10:24:15.880193126Z"
+generated: "2025-05-10T08:49:39.953445139Z"
