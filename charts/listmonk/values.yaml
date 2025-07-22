@@ -22,6 +22,14 @@ postgres:
   database: listmonk
   # -- enable postgres
   enabled: true
+  # -- optionally provide the name of an existing Kubernetes Secret containing database credentials.
+  # If set, this takes precedence over `user` and `password` values.
+  # The secret must include two keys: `db_user` and `db_password` (or custom keys if specified below).
+  existingSecret: "" # e.g., "listmonk-db-credentials"
+  # -- optional: override the key name used for the password in the secret (default: db_password)
+  existingSecretPasswordKey: db_password
+  # -- optional: override the key name used for the username in the secret (default: db_user)
+  existingSecretUsernameKey: db_user
   # -- when not enabled, the external postgres service hostname is required
   hostname: ""
   image:
