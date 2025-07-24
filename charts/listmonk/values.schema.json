@@ -81,6 +81,19 @@
                 },
                 "user": {
                     "type": "string"
+                },
+                "ssl_mode": {
+                    "type": "string",
+                    "description": "The SSL mode for postgres connection. Possible values: allow, disable, prefer, require, verify-ca, verify-full",
+                    "default": "disable",
+                    "enum": [
+                        "allow",
+                        "disable",
+                        "prefer",
+                        "require",
+                        "verify-ca",
+                        "verify-full"
+                    ]
                 }
             },
             "type": "object"
