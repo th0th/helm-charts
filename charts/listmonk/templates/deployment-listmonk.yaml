@@ -19,9 +19,23 @@ spec:
       containers:
       - env:
         - name: LISTMONK_db__user
-          value: {{ .Values.postgres.user }}
+          {{- if .Values.postgres.existingSecret }}
+          valueFrom:
+            secretKeyRef:
+              name: {{ .Values.postgres.existingSecret | quote }}
+              key: {{ .Values.postgres.existingSecretUsernameKey | quote }}
+          {{- else }}
+          value: {{ .Values.postgres.user | quote }}
+          {{- end }}
         - name: LISTMONK_db__password
-          value: {{ .Values.postgres.password }}
+          {{- if .Values.postgres.existingSecret }}
+          valueFrom:
+            secretKeyRef:
+              name: {{ .Values.postgres.existingSecret | quote }}
+              key: {{ .Values.postgres.existingSecretPasswordKey | quote }}
+          {{- else }}
+          value: {{ .Values.postgres.password | quote }}
+          {{- end }}
         image: {{ .Values.listmonk.image.repository }}:{{ .Values.listmonk.image.tag | default .Chart.AppVersion }}
         name: listmonk
         volumeMounts:
@@ -31,9 +45,23 @@ spec:
       initContainers:
       - env:
         - name: LISTMONK_db__user
-          value: {{ .Values.postgres.user }}
+          {{- if .Values.postgres.existingSecret }}
+          valueFrom:
+            secretKeyRef:
+              name: {{ .Values.postgres.existingSecret | quote }}
+              key: {{ .Values.postgres.existingSecretUsernameKey | quote }}
+          {{- else }}
+          value: {{ .Values.postgres.user | quote }}
+          {{- end }}
         - name: LISTMONK_db__password
-          value: {{ .Values.postgres.password }}
+          {{- if .Values.postgres.existingSecret }}
+          valueFrom:
+            secretKeyRef:
+              name: {{ .Values.postgres.existingSecret | quote }}
+              key: {{ .Values.postgres.existingSecretPasswordKey | quote }}
+          {{- else }}
+          value: {{ .Values.postgres.password | quote }}
+          {{- end }}
         name: init
         image: {{ .Values.listmonk.image.repository }}:{{ .Values.listmonk.image.tag | default .Chart.AppVersion }}
         command:

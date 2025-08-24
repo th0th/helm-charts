@@ -56,6 +56,18 @@
                 "enabled": {
                     "type": "boolean"
                 },
+                "existingSecret": {
+                    "type": "string",
+                    "description": "Optional: name of an existing Kubernetes Secret with db_user and db_password keys. If not set, `user` and `password` are required."
+                },
+                "existingSecretPasswordKey": {
+                    "type": "string",
+                    "description": "Optional: key inside the secret to use for the database password. Defaults to 'db_password'."
+                },
+                "existingSecretUsernameKey": {
+                    "type": "string",
+                    "description": "Optional: key inside the secret to use for the database username. Defaults to 'db_user'."
+                },
                 "hostname": {
                     "type": "string"
                 },
