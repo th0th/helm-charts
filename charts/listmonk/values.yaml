@@ -43,3 +43,5 @@ postgres:
   resources: {} # @schema $ref: https://raw.githubusercontent.com/yannh/kubernetes-json-schema/refs/heads/master/v1.31.6/resourcerequirements.json ; skipProperties: true
   # -- the postgres username
   user: "listmonk"
+  # -- the SSL mode for postgres connection. Possible values: disable, allow, prefer, require, verify-ca, verify-full
+  ssl_mode: "disable"

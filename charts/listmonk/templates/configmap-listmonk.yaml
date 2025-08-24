@@ -17,7 +17,7 @@ data:
     {{- end }}
     port = 5432
     database = "{{ .Values.postgres.database }}"
-    ssl_mode = "disable"
+    ssl_mode = "{{ .Values.postgres.ssl_mode }}"
     max_open = 25
     max_idle = 25
     max_lifetime = "300s"
