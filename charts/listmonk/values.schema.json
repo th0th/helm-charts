@@ -71,6 +71,9 @@
                 "hostname": {
                     "type": "string"
                 },
+                "port": {
+                    "type": "number"
+                }
                 "image": {
                     "additionalProperties": false,
                     "properties": {
