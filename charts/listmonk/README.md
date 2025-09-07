@@ -1,8 +1,8 @@
 # listmonk
 
 [![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)](#)
-[![Version: 5.0.3-2](https://img.shields.io/badge/Version-5.0.3-2-informational?style=flat-square)](#)
-[![AppVersion: 5.0.3-2](https://img.shields.io/badge/AppVersion-5.0.3-2-informational?style=flat-square)](#)
+[![Version: 5.0.3-3](https://img.shields.io/badge/Version-5.0.3-3-informational?style=flat-square)](#)
+[![AppVersion: 5.0.3](https://img.shields.io/badge/AppVersion-5.0.3-informational?style=flat-square)](#)
 
 High performance, self-hosted, newsletter and mailing list manager with a modern dashboard.
 
@@ -15,7 +15,7 @@ $ helm upgrade listmonk listmonk \
   --namespace listmonk \
   --repo https://th0th.github.io/helm-charts \
   --values values.yaml \
-  --version 5.0.3-2
+  --version 5.0.3-3
 ```
 
 ## Uninstall
@@ -36,7 +36,7 @@ $ helm uninstall --namespace listmonk listmonk
 | listmonk.admin.password            | string | `""`                  | the admin password                                                                                             |
 | listmonk.admin.username            | string | `""`                  | the admin username                                                                                             |
 | listmonk.image.repository          | string | `"listmonk/listmonk"` | the listmonk image repository                                                                                  |
-| listmonk.image.tag                 | string | `"v5.0.3-2"`            | the listmonk image tag                                                                                         |
+| listmonk.image.tag                 | string | `"v5.0.3"`            | the listmonk image tag                                                                                         |
 | listmonk.replicas                  | int    | `1`                   | the number of listmonk deployment replicas                                                                     |
 | postgres.database                  | string | `"listmonk"`          | the postgres database name                                                                                     |
 | postgres.enabled                   | bool   | `true`                | enable internal postgres                                                                                       |
