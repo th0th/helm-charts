@@ -32,6 +32,7 @@ postgres:
   existingSecretUsernameKey: db_user
   # -- when not enabled, the external postgres service hostname is required
   hostname: ""
+  port: 5432
   image:
     # -- the postgres image repository
     repository: postgres
