@@ -15,7 +15,8 @@ data:
     {{- else }}
     host = "{{ .Values.postgres.hostname }}"
     {{- end }}
-    port = 5432
+    port = "{{ .Values.postgres.port }}"
+
     database = "{{ .Values.postgres.database }}"
     ssl_mode = "{{ .Values.postgres.ssl_mode }}"
     max_open = 25
