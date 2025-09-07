@@ -44,6 +44,7 @@ $ helm uninstall --namespace listmonk listmonk
 | postgres.existingSecretPasswordKey | string | `""`                  | key in existingSecret for the database password (required if set)                                              |
 | postgres.existingSecretUsernameKey | string | `""`                  | key in existingSecret for the database username (required if set)                                              |
 | postgres.hostname                  | string | `""`                  | external postgres hostname (used when postgres.enabled is false)                                               |
+| postgres.port                      | number | `5432`                | external postgres port (used when postgres.enabled is false)                                                   |
 | postgres.image.repository          | string | `"postgres"`          | the postgres image repository                                                                                  |
 | postgres.image.tag                 | string | `"16-alpine"`         | the postgres image tag                                                                                         |
 | postgres.password                  | string | `""`                  | the postgres password (used if existingSecret is not set)                                                      |
