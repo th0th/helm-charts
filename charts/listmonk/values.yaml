@@ -14,7 +14,7 @@ listmonk:
     # -- the listmonk image repository
     repository: listmonk/listmonk
     # -- the listmonk image tag
-    tag: v5.0.3
+    tag: v5.0.3-2
   # -- the number of listmonk deployment replicas
   replicas: 1
 postgres:
@@ -32,6 +32,7 @@ postgres:
   existingSecretUsernameKey: db_user
   # -- when not enabled, the external postgres service hostname is required
   hostname: ""
+  port: 5432
   image:
     # -- the postgres image repository
     repository: postgres
