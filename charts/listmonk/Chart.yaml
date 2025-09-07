@@ -1,6 +1,6 @@
 apiVersion: v2
-appVersion: "5.0.3"
+appVersion: "5.0.3-2"
 description: High performance, self-hosted, newsletter and mailing list manager with a modern dashboard.
 name: listmonk
 type: application
-version: 5.0.3
+version: 5.0.3-2
