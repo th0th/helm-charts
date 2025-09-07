@@ -73,7 +73,7 @@
                 },
                 "port": {
                     "type": "number"
-                }
+                },
                 "image": {
                     "additionalProperties": false,
                     "properties": {
