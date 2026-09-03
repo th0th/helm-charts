@@ -25,7 +25,7 @@ postgres:
     # -- the postgres image repository
     repository: postgres
     # -- the postgres image tag
-    tag: 17-alpine
+    tag: 18-alpine
   # -- the postgres password
   password: n8n
   # -- resources configuration for the postgres statefulset
